@@ -1,0 +1,31 @@
+LDI A, 0     -- A is our loop counter, starting at 0
+LDI B, 0x41  -- B = 0x41
+LDI C, 0xF7  -- C = 0xF7
+LDI D, 0x59  -- D = 0x59
+
+LOOP:
+    
+    -- C = C AND D
+    ANDL C, C, D
+    
+    -- C = B + C
+    ADD C, B, C
+    
+    -- B = B XOR D
+    XORL B, B, D
+    
+    -- D = NOT D
+    INV D
+
+    -- 3. Loop Control
+    -- Increment the counter (A = A + 1)
+    ADDI A, A, 1
+    
+    -- Compare the counter A to 200
+    CMPI A, 200
+    
+    -- If A is NOT equal to 200 (Zero flag is 0),
+    -- jump back to the LOOP label
+    JNZ LOOP
+
+NOP
