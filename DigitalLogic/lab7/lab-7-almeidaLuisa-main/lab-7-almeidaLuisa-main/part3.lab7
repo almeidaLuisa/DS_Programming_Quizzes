@@ -1,0 +1,24 @@
+.list 10 0x200 0x21 0xea 0xb 0xf0 0x42 0x59 0x4c 0x61 0x7 0xb6
+.list 6 0x20A 0x30 0xc8 0xda 0x66 0x37 0x00
+
+LDI X, 0x200 -- load input table address
+LDI Y, 0x300 -- load output table address
+
+LOOP:
+    -- how to read from table?
+
+    -- check if value is zero?
+
+    -- if value is zero, branch to END
+
+    -- check if 5th bit is set
+
+    -- do stuff if not set
+    
+    BITSET:
+    -- do stuff if its set
+
+    AFTER:
+    -- how to write to table?
+END:
+NOP -- for analyzing register and memory values

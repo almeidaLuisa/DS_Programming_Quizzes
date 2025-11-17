@@ -1,0 +1,18 @@
+-- Initialize registers
+LDI A, 0x01      -- A = 0b00000001
+LDI B, 0x80      -- B = 0b10000000
+
+-- Logical left shift tests
+LSL A, A, 1         -- Shift A left by 1 -> A = 0b00000010
+LSL B, B, 2         -- Shift B left by 2 -> B = 0b00000000 (overflow wraps to 8-bit)
+
+-- Logical right shift tests
+LDI C, 0x04      -- C = 0b00000100
+LDI D, 0xF0      -- D = 0b11110000
+
+LSR C, C, 1         -- Shift C right by 1 -> C = 0b00000010
+LSR D, D, 4         -- Shift D right by 4 -> D = 0b00001111
+
+-- NOPs to stop for inspection
+NOP
+NOP

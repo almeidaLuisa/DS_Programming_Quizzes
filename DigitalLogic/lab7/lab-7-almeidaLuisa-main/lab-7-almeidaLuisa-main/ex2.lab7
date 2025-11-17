@@ -1,0 +1,9 @@
+.byte 0x200 0xE3 -- place a byte into memory
+
+LDI X, 0x200
+RDM A, X -- get data from 0x200 into register A
+ADDI A, A, 11 -- add 11 to 0xE3
+WRM X, A -- write back to memory
+
+NOP -- filler instructions to give time to check memory
+NOP

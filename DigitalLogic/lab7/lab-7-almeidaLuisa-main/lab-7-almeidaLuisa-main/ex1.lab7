@@ -1,0 +1,18 @@
+-- this program will add 32 and 23 then place the result in register B
+LDI A, 32 -- load register A with 32
+LDI C, 0x17 -- load register C with 23 (in hex!)
+ADD B, A, C -- compute B = A + C
+
+NOP -- Dummy instruction to give time to peek at state
+
+-- then it will calculate 80 - 79 and place the result in register C
+LDI A, 80 -- load register A with 80
+LDI C, 0x4f -- load register B with 79 (in hex!)
+SUB C, A, C -- compute C = A - C
+
+NOP
+
+LDI D, 0xC0
+NOP
+
+-- now the registers spell out 003701C0
