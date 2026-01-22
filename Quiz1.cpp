@@ -12,23 +12,41 @@ string booktable[2][2] = {
         "hunger games", "lola"}};
 
 template <typename T, int col, int row>
-vector<T> convert_2d_to_1d(const string (&booktable)[row][col]) {
+vector<T> convert_2d_to_1d(const T (&booktable)[row][col]) {
     vector<T> result;
     for (int i = 0; i < row; i++) {
         for (int j = 0; j < col; j++) {
-            bool found = find(booktable[i].begin(), booktable[i].end(), booktable[i][j]) != booktable[i].end(); ,
-            auto it = std::find(booktable.begin(), booktable.end(), booktable[i][j]);
-            if (it != booktable[i].end()) {
+            const string &current = booktable[i][j];
+
+            if(find(result.begin(), result.end(), current) == result.end()){
+
                 result.push_back(booktable[i][j]);
             }
 
             //Check if this is already in the array or not
         }
     }
+    return result;
 }
 
 
 int main() {
-    convert_2d_to_1d<string>(booktable);
+    string booktable[2][2] = {
+        {"wizard of oz", "the man and the sea"},
+        {"hunger games", "lola"}
+    };
 
-};
+    vector<string> uniquebooks = convert_2d_to_1d(booktable);
+
+    cout << "Unique books:\n";
+    for (const auto& s : uniquebooks) {
+        cout << s << "\n";
+    }
+
+    cout << "\nAll books (2D array):\n";
+    for (const auto& row : booktable) {
+        for (const auto& s : row) {
+            cout << s << "\n";
+        }
+    }
+}
